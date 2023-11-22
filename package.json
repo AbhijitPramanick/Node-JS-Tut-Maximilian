@@ -9,5 +9,8 @@
     "start-server": "node app.js"
   },
   "author": "Abhijit Pramanick",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
 }
