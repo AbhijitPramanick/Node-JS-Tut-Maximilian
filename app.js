@@ -56,4 +56,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(adminRoute);
 app.use(shopRoute);
 
+//Following code is for handling 404 Page not found
+app.use((req, res, next) => {
+  console.log(`Middleware handling status 404 page`);
+  res.status(404).send(`<h1>Status:404 Page not found</h1>`);
+});
 app.listen(3000);
