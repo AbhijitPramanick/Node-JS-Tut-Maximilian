@@ -53,7 +53,9 @@ const shopRoute = require(`./routes/shop`);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(adminRoute);
+//Filtering Paths
+app.use("/admin", adminRoute);
+// So this filtering mechanism here in app.js allows us to put a common starting segment for our path which all routes in a given file use to outsource that into this app.js file so that we don't have to repeat it for all the routes here.
 app.use(shopRoute);
 
 //Following code is for handling 404 Page not found
