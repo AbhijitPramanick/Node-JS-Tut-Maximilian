@@ -41,45 +41,19 @@
 
 // app.listen(3000);
 
-// ///////////////////////////////////////////////////
+// //////////////////////////////////////////////////
 
 const express = require("express");
 
 const app = express();
-
 const bodyParser = require("body-parser");
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use("/", (req, res, next) => {
-  console.log(`This always runs`);
-  next();
-});
-app.use("/add-products", (req, res, next) => {
-  console.log(`In Add-Products middleware`);
-  res.send(
-    `<html>
-    <head>
-      <title>Add products</title>
-    </head>
-    <body>
-      <form action="/products" method="POST"><input type="text" name="message" placeholder="Enter Products"><button type="submit">Add</button></input></form>
-    </body>
-    </html>`
-  );
-});
+const adminRoute = require(`./routes/admin`);
+const shopRoute = require(`./routes/shop`);
 
-app.use("/products", (req, res, next) => {
-  console.log(`In Products middleware`);
-  console.log(">>>>>>>>>", req.body.message);
-  res.send(
-    `<html>
-    <head>
-      <title>Products</title>
-    </head>
-    <body>
- <h1>Welcome to products</h1>
-    </body>
-    </html>`
-  );
-});
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(adminRoute);
+app.use(shopRoute);
+
 app.listen(3000);
