@@ -44,7 +44,7 @@
 // //////////////////////////////////////////////////
 
 const express = require("express");
-
+const path = require("path");
 const app = express();
 const bodyParser = require("body-parser");
 
@@ -53,14 +53,12 @@ const shopRoute = require(`./routes/shop`);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-//Filtering Paths
-app.use("/admin", adminRoute);
-// So this filtering mechanism here in app.js allows us to put a common starting segment for our path which all routes in a given file use to outsource that into this app.js file so that we don't have to repeat it for all the routes here.
+app.use(adminRoute);
 app.use(shopRoute);
 
 //Following code is for handling 404 Page not found
 app.use((req, res, next) => {
   console.log(`Middleware handling status 404 page`);
-  res.status(404).send(`<h1>Status:404 Page not found</h1>`);
+  res.status(404).sendFile(path.join(__dirname, "views", "page404.html"));
 });
 app.listen(3000);
