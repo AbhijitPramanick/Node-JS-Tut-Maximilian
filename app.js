@@ -53,12 +53,17 @@ const shopRoute = require(`./routes/shop`);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(adminRoute);
-app.use(shopRoute);
+//Static Middleware : The express.static middleware is configured to serve files from the "public" directory. When a request comes in for a file, Express will check if that file exists in the specified directory and, if found, will automatically send it as the response.
+app.use(express.static(path.join(__dirname, "public")));
+//We can have multiplt static middleware, the requests can funnel through until it hits the correct folder
 
-//Following code is for handling 404 Page not found
+app.use(shopRoute);
+app.use(adminRoute);
+
+// Following code is for handling 404 Page not found
 app.use((req, res, next) => {
   console.log(`Middleware handling status 404 page`);
   res.status(404).sendFile(path.join(__dirname, "views", "page404.html"));
 });
+
 app.listen(3000);

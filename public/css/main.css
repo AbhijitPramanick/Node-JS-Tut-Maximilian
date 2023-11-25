@@ -1,0 +1,40 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+.main-header {
+  width: 100%;
+  height: 10%;
+  height: 3.5rem;
+  background-color: gold;
+}
+.main-header__item-list {
+  width: 90%;
+  padding-block: 15px;
+  list-style: none;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10%;
+}
+.main-header__item {
+  font-size: 1.4em;
+}
+.main-header__item a {
+  color: red;
+  font-weight: 700;
+  text-decoration: none;
+}
+.main-header__item a:hover,
+.main-header__item a:active,
+.main-header__item a.active {
+  text-decoration: underline;
+  color: blue;
+}

@@ -4,19 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add products</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/shop.css" />
   </head>
   <body>
-    <header>
-      <nav>
-        <ul>
-          <li><a href="/">Shop</a></li>
-          <li><a href="/add-products">Add Products</a></li>
+    <header class="main-header">
+      <nav class="main-header__nav">
+        <ul class="main-header__item-list">
+          <li class="main-header__item"><a class="active" href="/">Shop</a></li>
+          <li class="main-header__item">
+            <a href="/admin/add-products">Add Products</a>
+          </li>
         </ul>
       </nav>
     </header>
-    <main>
-      <h1>My Products</h1>
-      <p>List of all products...</p>
+    <main class="main__container">
+      <h1 class="main__heading">My Products</h1>
+      <p class="main__paragraph">List of all products...</p>
     </main>
   </body>
 </html>
