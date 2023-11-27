@@ -6,7 +6,8 @@ const products = [];
 //   /admin/add-products => GET
 router.get("/add-products", (req, res, next) => {
   console.log(`In Add-Products middleware`);
-  res.sendFile(path.join(rootDir, "views", "add-products.html"));
+  // res.sendFile(path.join(rootDir, "views", "add-products.html"));
+  res.render("add-products", { pageTitle: "Add products" });
 });
 
 //   /admin/add-products => POST
