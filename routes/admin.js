@@ -5,9 +5,13 @@ const rootDir = require("../util/path");
 const products = [];
 //   /admin/add-products => GET
 router.get("/add-products", (req, res, next) => {
-  console.log(`In Add-Products middleware`);
-  // res.sendFile(path.join(rootDir, "views", "add-products.html"));
-  res.render("add-products", { pageTitle: "Add products" });
+  res.render("add-products", {
+    pageTitle: "Add Products",
+    path: "/admin/add-products",
+    formsCSS: true,
+    productCSS: true,
+    activeAddProduct: true,
+  });
 });
 
 //   /admin/add-products => POST
