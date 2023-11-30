@@ -13,10 +13,14 @@
   font-size: 1.2rem;
 }
 .form__control label,
-.form__control input {
+.form__control input,
+.form__control textarea {
   display: block;
+  width: 100%;
+  margin-bottom: 0.25rem;
 }
-.form__control input {
+.form__control input,
+.form__control textarea {
   background-color: rgb(215, 255, 237);
   padding: 15px;
   font-size: 1.5rem;
@@ -24,8 +28,12 @@
   color: brown;
   border-radius: 10px;
 }
+.form__control input:focus,
+.form__control textarea:focus{
+  outline-color: #00695c ;
+}
 .product__form button {
-  background-color: brown;
+  background-color: brown; 
   color: white;
   border-radius: 5px;
   font-size: 1.5rem;
